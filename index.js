@@ -29,6 +29,6 @@ module.exports = (action, getNext, immediate = true) => {
     isRunning = false;
     clearTimeout(timeoutId);
   };
-  (immediate ? action : Promise.resolve)().finally(runner);
+  (immediate ? action() : Promise.resolve({})).finally(runner);
   return stop;
 };
